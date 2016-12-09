@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>InstaCollage</title>
+    <link href="/css/semantic/semantic.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+
+    <script src="/js/jquery-2.1.3.min.js"></script>
+    <script src="/js/semantic/semantic.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+    <script>
+        $( document ).ready(function() {
+            $("#generate-button").click(function() {
+                var height = $("#height").val();
+                var width = $("#width").val();
+                var url = "/generate/"+ height + "/" + width + "/" + $("#photosNumber").val() + "/";
+                console.log("Sending request to " + url);
+                $.getJSON(url, function(data) {
+                    $("#collage").attr('height', height);
+                    $("#collage").attr('width', width);
+                    $("#collage").attr('src', data.data);
+                });
+            });
+        });
+    </script>
+
+    <div class="ui two column grid">
+        <div class="three wide center aligned column">
+            <div class="ui form segment">
+                <label for="height">Height</label>
+                <div class="ui right labeled input">
+                    <input id="height" placeholder="height" type="text" />
+                    <div class="ui basic label">
+                        px
+                    </div>
+                </div>
+                <label for="width">Width</label>
+                <div class="ui right labeled input">
+                    <input id="width" placeholder="width" type="text"/>
+                    <div class="ui basic label">
+                        px
+                    </div>
+                </div>
+
+                <div  class="field">
+                    <label for="photosNumber">The number of photos</label>
+                    <input id="photosNumber" placeholder="" type="text" />
+                </div>
+
+                <button class="ui blue button" id="generate-button">Let's try!</button>
+            </div>
+        </div>
+        <div class="thirteen wide column" id="collage-div">
+            <img id="collage" src=""/>
+        </div>
+    </div>
+</body>
+</html>

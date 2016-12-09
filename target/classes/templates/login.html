@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>InstaCollage</title>
+    <link href="/css/semantic/semantic.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+
+<script src="/js/jquery-2.1.3.min.js"></script>
+<script src="/js/semantic/semantic.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+
+<div class="ui grid">
+    <div class="row">
+        <div class="column padding-reset">
+            <div class="ui huge message page grid">
+                <h1 class="ui huge header">Hi!</h1>
+                <p>This is a simple site for making collages</p>
+                <a class="ui blue button"
+                   th:href="@{https://api.instagram.com/oauth/authorize/?client_id=__${clientId}__&amp;redirect_uri=__${redirectUri}__&amp;response_type=code}">
+                    Get access &raquo;</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

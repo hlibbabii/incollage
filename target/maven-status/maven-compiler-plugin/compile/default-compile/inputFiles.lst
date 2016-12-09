@@ -1,0 +1,8 @@
+/home/hlib/dev/java/instacollage/src/main/java/ua/webchallange/instacollage/NotAuthenticatedException.java
+/home/hlib/dev/java/instacollage/src/main/java/ua/webchallange/instacollage/service/FeedParser.java
+/home/hlib/dev/java/instacollage/src/main/java/ua/webchallange/instacollage/SessionData.java
+/home/hlib/dev/java/instacollage/src/main/java/ua/webchallange/instacollage/controllers/Controller.java
+/home/hlib/dev/java/instacollage/src/main/java/ua/webchallange/instacollage/Startup.java
+/home/hlib/dev/java/instacollage/src/main/java/ua/webchallange/instacollage/util/HttpHelper.java
+/home/hlib/dev/java/instacollage/src/main/java/ua/webchallange/instacollage/service/CollageGenerationService.java
+/home/hlib/dev/java/instacollage/src/main/java/ua/webchallange/instacollage/util/ImageHelper.java

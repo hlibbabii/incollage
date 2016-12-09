@@ -1,0 +1,8 @@
+ua/webchallange/instacollage/util/ImageHelper.class
+ua/webchallange/instacollage/util/HttpHelper.class
+ua/webchallange/instacollage/NotAuthenticatedException.class
+ua/webchallange/instacollage/service/CollageGenerationService.class
+ua/webchallange/instacollage/Startup.class
+ua/webchallange/instacollage/controllers/Controller.class
+ua/webchallange/instacollage/service/FeedParser.class
+ua/webchallange/instacollage/SessionData.class
