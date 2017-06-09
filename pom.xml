@@ -12,8 +12,8 @@
     <properties>
         <java.version>1.8</java.version>
         <!-- dependency versions -->
-        <spring.version>4.1.7.RELEASE</spring.version>
-        <spring.boot.version>1.2.5.RELEASE</spring.boot.version>
+        <spring.version>4.3.9.RELEASE</spring.version>
+        <spring.boot.version>1.5.4.RELEASE</spring.boot.version>
         <velocity.version>1.7</velocity.version>
         <themeleaf.version>2.1.4.RELEASE</themeleaf.version>
         <apache.http.client.version>4.5</apache.http.client.version>
@@ -40,6 +40,12 @@
             <artifactId>spring-context-support</artifactId>
             <version>${spring.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
 
 
         <dependency>
@@ -88,24 +94,13 @@
                 </configuration>
             </plugin>
             <plugin>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <version>3.0.0</version>
-                <configuration>
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
-                    <archive>
-                        <manifest>
-                            <mainClass>ua.webchallange.instacollage.Startup</mainClass>
-                            <addClasspath>true</addClasspath>
-                        </manifest>
-                    </archive>
-                </configuration>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>1.5.4.RELEASE</version>
                 <executions>
                     <execution>
-                        <phase>package</phase>
                         <goals>
-                            <goal>single</goal>
+                            <goal>repackage</goal>
                         </goals>
                     </execution>
                 </executions>
