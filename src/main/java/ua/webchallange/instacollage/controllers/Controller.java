@@ -30,14 +30,11 @@ public class Controller {
     @Value("${client.id}")
     private String clientId;
 
-    @Value("${host}")
-    private String serverHost;
-
-    @Value("${server.port}")
-    private String serverPort;
-
     @Value("${access.token.url}")
     private String accessTokenUrl;
+
+    @Value("${redirect.uri}")
+    private String redirectUri;
 
     @Value("${client.secret}")
     private String clientSecret;
@@ -54,7 +51,7 @@ public class Controller {
     @RequestMapping("/login")
     public String loginPage(Model model) {
         model.addAttribute("clientId", clientId);
-        model.addAttribute("redirectUri", "http://" + serverHost + ":" + serverPort + "/code");
+        model.addAttribute("redirectUri", redirectUri);
         return "login";
     }
 
@@ -64,7 +61,7 @@ public class Controller {
                 .put("client_id", clientId)
                 .put("client_secret", clientSecret)
                 .put("grant_type", "authorization_code")
-                .put("redirect_uri", "http://" + serverHost + ":" + serverPort + "/code")
+                .put("redirect_uri", redirectUri)
                 .put("code", code)
                 .build();
         String response = HttpHelper.sendPostRequest(accessTokenUrl, params);
