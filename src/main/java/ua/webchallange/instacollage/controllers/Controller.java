@@ -86,7 +86,7 @@ public class Controller {
     public @ResponseBody String generate(@PathVariable int height, @PathVariable int width, @PathVariable int photosNumber) {
         try {
             checkAuthenticated();
-            String response = HttpHelper.sendGetRequest("https://api.instagram.com/v1/users/self/feed",
+            String response = HttpHelper.sendGetRequest("https://api.instagram.com/v1/users/self/media/recent/",
                     ImmutableMap.<String, String>builder()
                             .put("access_token", sessionData.getAccessToken())
                             .build());
