@@ -1,5 +1,6 @@
 package ua.webchallange.instacollage.util;
 
+import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
@@ -10,7 +11,8 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
-import org.apache.commons.io.IOUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -23,6 +25,8 @@ import java.util.stream.Collectors;
 
 
 public class HttpHelper {
+
+    private final static Logger logger = LoggerFactory.getLogger(HttpHelper.class);
 
     private HttpHelper() {}
 
@@ -69,7 +73,11 @@ public class HttpHelper {
             urlBuilder.append("?");
             params.entrySet().forEach(e -> urlBuilder.append(e.getKey()).append("=").append(e.getValue()));
         }
-        HttpGet httpGet = new HttpGet(urlBuilder.toString());
+        String uri = urlBuilder.toString();
+        HttpGet httpGet = new HttpGet(uri);
+        if (logger.isTraceEnabled()) {
+            logger.trace(uri);
+        }
         return httpСlient.execute(httpGet);
     }
 }
